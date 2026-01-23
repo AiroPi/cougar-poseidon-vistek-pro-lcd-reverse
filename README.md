@@ -1,7 +1,7 @@
 # cougar-poseidon-vistek-pro-lcd-reverse
 
 Because the Cougar LCD Editor was only available on Windows, my POSEIDON VISTEK PRO ARGB wasn't working at all in my linux.
-I had to find a solution to have it working, and a Windows VM on my Linux was not a condideration.
+I had to find a solution to have it working, and a Windows VM on my Linux was not a consideration.
 
 This repo contains an unofficial protocol description to communicate with this product throught USB.
 
@@ -28,8 +28,8 @@ The communication with the SCREEN device is made through USB.
 | - | - | - | - |
 | Prefix | 1 byte | Start delimiter | `Ox5a` |
 | Length | 2 bytes | This is the **total** number of **bytes** in the packet. It must be exactly egal. <br> ⚠️ Sometimes it seems to be 1 byte bigger, the exact behavior needs to be determined. | `0x006c` if packet length is 108 |
-| Data | x bytes | ASCII-encoded structured data to send/receive from the screen. Check bellow | `0x504f535420706f77657220310d0a5365714e756d6265723d320d0a446174653d313736393033333036343333330d0a436f6e74656e74547970653d6a736f6e0d0a436f6e74656e744c656e6774683d31380d0a0d0a7b226576656e74223a22726573756d65227d` |
-| Checksum | 1 byte | Sum of all bytes in "Length" + "Data" % 25 | `0xfa` |
+| Data | x bytes | ASCII-encoded structured data to send/receive from the screen. Check bellow | `...` |
+| Checksum | 1 byte | Sum of all bytes in "Length" + "Data" % 256 | `0xfa` |
 | Suffix | 1 byte | End delimiter | `Ox5a` |
 
 
