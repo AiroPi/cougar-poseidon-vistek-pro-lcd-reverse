@@ -81,13 +81,12 @@
             '';
 
             systemd.services.cougar-lcd-daemon = {
-              description = "Cougar LCD Daemon";
-              # after = [ "network.target" ];
+              description = "Cougar LCD overlay daemon";
               wantedBy = [ "multi-user.target" ];
 
               serviceConfig = {
                 ExecStart = "${self.packages.${pkgs.system}.cougar-lcd-overlay}/bin/cougar-lcd-overlay-daemon";
-                # User = "";
+                User = "pi";  # TODO: make this configuration
                 Restart = "on-failure";
               };
             };
