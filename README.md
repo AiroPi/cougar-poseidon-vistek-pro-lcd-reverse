@@ -1,6 +1,6 @@
 # cougar-poseidon-vistek-pro-lcd-reverse
 
-Because the Cougar LCD Editor was only available on Windows, my POSEIDON VISTEK PRO ARGB wasn't working at all in my linux.
+Because the Cougar LCD Editor was only available on Windows, my POSEIDON VISTEK PRO ARGB wasn't working at all in my linux system.
 I had to find a solution to have it working, and a Windows VM on my Linux was not a consideration.
 
 This repo contains an unofficial protocol description to communicate with this product throught USB.
@@ -99,3 +99,20 @@ In fact, the LCD contains a `.png` or `.mp4` image (sent using transport/transpo
 This means that we can't just send the statistics, we needs to generate the foreground image.
 
 Apart from that, it is pretty simple to display dynamic data on screen :)
+
+## How to test
+
+The `cougar_lcd_controller.py` library contains implementation in python to send things to the display. You will need to install `pyusb`.
+
+For example:
+```py
+cougar_lcd = CougarLCD()
+cougar_lcd.connect()
+cougar_lcd.resume()
+cougar_lcd.send_png("demo.png")
+```
+(Or simply run `python cougar_lcd_controller.py`)
+
+Send images in the right dimensions.
+
+There is also other examples to send a template to the screen with an overlay.

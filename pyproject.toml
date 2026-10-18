@@ -1,0 +1,17 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cougar-lcd"
+version = "0.0.1"
+description = "Cougar LCD Display controller"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pyusb",
+]
+
+[project.scripts]
+# This exposes your main() function as a terminal command named 'lcd-stats'
+lcd-demo = "cougar_lcd:main"
